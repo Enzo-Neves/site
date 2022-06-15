@@ -1,0 +1,1 @@
+INSERT INTO usuarios(usuario,senha)VALUES("gilson", "Tilapia@312")
