@@ -82,6 +82,7 @@ textarea:-moz-placeholder{
 input {
   outline: none;
   background: #222325;
+  color: #ffffff;
 }
 
 
@@ -104,15 +105,7 @@ input:not([type="checkbox"]){
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-input[type="text"]{
-  color: #ffffff;
-}
-input[type="email"]{
-  color: #ffffff;
-}
-input[type="password"]{
-  color: #ffffff;
-}
+
 /*estilo do botão submit */
 input[type="submit"]{
   width: 100%!important;
