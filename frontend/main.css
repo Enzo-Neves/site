@@ -1,29 +1,17 @@
-/* CSS reset */
-*, *:before, *:after { 
-  margin:0;
-  padding:0;
-  font-family: Arial,sans-serif;
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
 }
 
-body{
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #242329;
+  display: grid;
+  place-items: center;
+  height: 100vh;
   margin:10px;
-  background-color: #222325;
-}
-
-a{
-  text-decoration: none;
-}
-
-/* esconde as ancoras da tela */
-a.links{
-  display: none;
-}
-
-/* content que contem os formulários */
-.content{
-  width: 500px;
-  margin: 0px auto;
-  position: relative; 
 }
 
 .header {
@@ -32,28 +20,78 @@ a.links{
   display: block;
   margin: 0 auto;
   padding: 16px;
-  background-color: #222325;
-  color: #067554;
 }
 
-/* formatando o cabeçalho dos formulários */
 h1{
   font-size: 48px;
   color: #0edf7d;
   padding: 10px 0;
   font-family: Arial,sans-serif;
   font-weight: bold;
-  text-align: center;
   padding-bottom: 30px;
 }
+
 h1:after{
   content: ' ';
   display: block;
   width: 100%;
   height: 2px;
-  margin-top: 10px;
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
-  background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+ 
+  background: linear-gradient(#3f3d47 , #3d3c47); 
+}
+/* ======================== */
+.title span {
+  --total: calc(var(--duration) + var(--delay));
+  position: relative;
+  display: block;
+  color: transparent;
+  overflow: hidden;
+  animation: revealText 1s var(--total) forwards;
+}
+
+.title span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #04bb75;
+  animation:
+      rollIn var(--duration) var(--delay) forwards,
+      rollOut var(--duration) var(--total) forwards;
+}
+
+.title span:nth-child(2)::after {
+  border-top: 3px solid #04bb75;
+}
+
+@keyframes revealText {
+  to {
+      color: #fff;
+  }
+}
+
+@keyframes rollIn {
+  from {
+      transform: scaleX(0);
+  }
+
+  to {
+      transform: scaleX(1);
+  }
+}
+
+@keyframes rollOut {
+  from {
+      transform: translateX(0);
+  }
+
+  to {
+      transform: translateX(105%);
+  }
 }
 
 p{
@@ -108,6 +146,7 @@ input:not([type="checkbox"]){
 
 /*estilo do botão submit */
 input[type="submit"]{
+  
   width: 100%!important;
   cursor: pointer;  
   background: #10e261;
@@ -123,18 +162,18 @@ input[type="submit"]{
   
   transition: all 0.2s linear;
 }
+
 input[type="submit"]:hover{
   background: #222325;
   background-color: #222325;
 }
  
 #login{
-  position: absolute;
   top: 0px;
-  width: 88%; 
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 18px 6% 60px 6%;
-  margin: 0 0 35px 0;
-  background: #222325;
   border: 1px solid rgba(147, 184, 189,0.8);
   
   -webkit-box-shadow: 5px;
@@ -157,50 +196,4 @@ input[type="submit"]:hover{
 
   -webkit-animation-delay: .1s;
   animation-delay: .1s;
-}
-
-/*fadeInLeft*/
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/*fadeOutLeft*/
-@-webkit-keyframes fadeOutLeft {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateX(-20px);
-  }
-}
-
-@keyframes fadeOutLeft {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
 }
