@@ -1,0 +1,237 @@
+:root{
+  --clr-primary:#304ffe;
+  --clr-primary-hover:#29e6a7;
+  --clr-primary-dark:#039d69;
+  --clr-gray100:#f0f7f8;
+  --clr-gray200:#cfd8dc;
+  --clr-gray300:#a7b7be;
+  --clr-gray400:#6b7e86;
+  --clr-gray500:#425a65;
+  
+  }
+
+*, *:before, *:after { 
+    margin:0;
+    padding:0;
+    font-family: Arial,sans-serif;
+  }
+
+
+  header{
+    background-image: linear-gradient(to right, #0aac18, #20b451);
+    color: #FFFFFF;
+    height: 16vh;
+  } 
+
+  h1{
+    font-size: 59px;
+  }
+
+  .card{
+    margin: 1em;
+    display: inline-flex;
+    width: 20em;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--clr-gray200);
+    box-shadow: 4px 4px var(--clr-gray200);
+    justify-content: space-around;
+    cursor: pointer;
+    transition: border 200ms ease-in,
+     box-shadow 200ms ease-in;
+     margin-right: 6.1em;
+     border-radius: 1em;
+  }
+  
+ 
+  .card__image{
+    height: 12rem;
+    width: 100%;
+    margin: 0.1em;
+    border-radius: 1em;
+  }
+  .card__title{
+    position: relative;
+    font-size: 30px;
+    left: 25%;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  .logo {
+  
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    height: 8vh;
+  }
+  
+    
+    .nav-list {
+      list-style: none;
+      display: flex;
+    }
+    
+    .nav-list li {
+      letter-spacing: 6px;
+      margin: 10em;
+    }
+    
+    .mobile-menu {
+      display: none;
+      cursor: pointer;
+    }
+    
+    .mobile-menu div {
+      width: 32px;
+      height: 2px;
+      background: #fff;
+      margin: 8px;
+      transition: 0.3s;
+    }
+    
+    @media (max-width: 999px) {
+      
+      body,html{
+        overflow-x: hidden!important;
+        position: relative;
+        width: 100%;
+      }
+  
+      .nav-list {
+        position: absolute;
+        top: 18vh;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: #23232e;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .nav-list li {
+        opacity: 0;
+      }
+      .mobile-menu {
+        display: block;
+      }
+      .card{
+        width: 70%;
+        margin-right: 0;
+      }
+    }
+    
+    .nav-list.active {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+  
+  
+    @keyframes navLinkFade {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+    }
+    
+    .mobile-menu.active .line1 {
+      transform: rotate(-45deg) translate(-8px, 8px);
+    }
+    
+    .mobile-menu.active .line2 {
+      opacity: 0;
+    }
+    
+    .mobile-menu.active .line3 {
+      transform: rotate(45deg) translate(-5px, -7px);
+    }
+  
+  
+    .title span {
+      --total: calc(var(--duration) + var(--delay));
+      position: relative;
+      display: block;
+      color: transparent;
+      overflow: hidden;
+      animation: revealText 1s var(--total) forwards;
+    }
+    
+    .title span::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: scaleX(0);
+      transform-origin: left;
+        background-image: linear-gradient(to right, #0aac18, #20b451);
+      animation:
+          rollIn var(--duration) var(--delay) forwards,
+          rollOut var(--duration) var(--total) forwards;
+    }
+    
+    .title span:nth-child(2)::after {
+      border-top: 3px solid  #0aac18;
+    }
+    
+    @keyframes revealText {
+      to {
+          color: rgb(0, 0, 0);
+      }
+    }
+    
+    @keyframes rollIn {
+      from {
+          transform: scaleX(0);
+      }
+    
+      to {
+          transform: scaleX(1);
+      }
+    }
+    
+    @keyframes rollOut {
+      from {
+          transform: translateX(0);
+      }
+    
+      to {
+          transform: translateX(105%);
+      }
+    }
+    
+    p{
+      font-size: 30px;
+    }
+
+    .imagem-grande{
+      width: 100%;
+      height: 100%;
+    }
